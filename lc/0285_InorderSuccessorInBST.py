@@ -36,5 +36,27 @@ class Solution:
         res = inorder(root, p)
         return res
         
-    
-            
+## 4/8/2021: iterative solution
+# class Solution:
+#     def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+#         '''
+#         inorder traversal the tree, find the child node of the target node
+#         '''
+#         curr = None
+#         stack = []        
+        
+#         while True:
+#             while root:
+#                 stack.append(root)
+#                 root = root.left
+#             if not stack:
+#                 return None
+#             node = stack.pop()
+#             if curr == p:
+#                 return node
+#             curr = node
+#             root = node.right
+
+
+
+
