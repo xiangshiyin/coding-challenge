@@ -69,5 +69,35 @@ class Solution:
             self.reverse(nums, 0, N-1)
             self.reverse(nums, 0, k2-1)
             self.reverse(nums, k2, N-1)
-                
+
+# solution as of 11/12/2021
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        # get effective k
+        k = k % n
+        
+        # exceptions
+        if n==1:
+            return nums
+        
+        # we can do 3 flips to achieve the rotation
+        ## define the flip function
+        def flip(vs, l, r):
+            while l < r:
+                vs[l],vs[r] = vs[r],vs[l]
+                l += 1
+                r -= 1
+        
+        # step 1: full flip
+        flip(nums, 0, n-1)
+        # step 2: flip the head
+        flip(nums, 0, k-1)
+        # step 3: flip the tail
+        flip(nums, k, n-1)
+        
+        return nums
 
