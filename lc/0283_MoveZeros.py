@@ -11,20 +11,53 @@ You must do this in-place without making a copy of the array.
 Minimize the total number of operations.
 '''
 
+# class Solution:
+#     def moveZeroes(self, nums: List[int]) -> None:
+#         """
+#         Do not return anything, modify nums in-place instead.
+#         """
+#         zero_counter = 0
+#         for idx in range(len(nums)):
+#             if nums[idx]==0:
+#                 zero_counter += 1
+#             else:
+#                 if zero_counter > 0:
+#                     nums[idx-zero_counter] = nums[idx]
+#                     nums[idx] = 0
+
+
+# solution as of 11/12/2021
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        zero_counter = 0
-        for idx in range(len(nums)):
-            if nums[idx]==0:
-                zero_counter += 1
+        n = len(nums)
+        if n==1:
+            return nums
+        
+        # 1. count the zeros
+        n0 = 0
+        for i in range(n):
+            if nums[i] == 0:
+                n0 += 1
+        
+        if n0 == 0:
+            return nums
+        
+        # 2. move the elements
+        counter = 0
+        for i in range(n):
+            if nums[i]==0:
+                counter += 1
             else:
-                if zero_counter > 0:
-                    nums[idx-zero_counter] = nums[idx]
-                    nums[idx] = 0
-
+                if counter > 0:
+                    nums[i - counter] = nums[i]
+                    nums[i] = 0
+        return nums
+            
+        
+        
 def test(nums):
     print(nums)
     zero_counter = 0
