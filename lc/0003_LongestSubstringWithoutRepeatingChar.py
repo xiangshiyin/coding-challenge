@@ -63,27 +63,51 @@ Created on Thu Nov 23 15:58:47 2017
 #         return max_len
 
 # on 2/5/2021
+# class Solution:
+#     def lengthOfLongestSubstring(self, s: str) -> int:
+#         N = len(s)
+#         # exceptions
+#         if N <= 1:
+#             return N
+        
+#         # traverse string, utilize hash table to help check repeated chars
+#         tb = {}
+#         start = 0
+#         end = 0
+#         max_len = 0
+#         while end < N and end >= start:
+#             if s[end] in tb and tb[s[end]] >= start:
+#                 max_len = max(max_len, end - start)
+#                 start = tb[s[end]] + 1
+            
+#             tb[s[end]] = end           
+#             end += 1
+        
+#         max_len = max(max_len, end - start)
+        
+#         return max_len
+
+# as of 11/13/2021
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        N = len(s)
-        # exceptions
-        if N <= 1:
-            return N
+        lookup = set()
+        maxL = 0
+        n = len(s)
+        if n <= 1:
+            return n
         
-        # traverse string, utilize hash table to help check repeated chars
-        tb = {}
-        start = 0
-        end = 0
-        max_len = 0
-        while end < N and end >= start:
-            if s[end] in tb and tb[s[end]] >= start:
-                max_len = max(max_len, end - start)
-                start = tb[s[end]] + 1
-            
-            tb[s[end]] = end           
-            end += 1
-        
-        max_len = max(max_len, end - start)
-        
-        return max_len
+        l = r = 0
+        while r < n:
+            if s[r] not in lookup:
+                lookup.add(s[r])
+            else:
+                maxL = max(maxL, r - l)
+                while s[l] != s[r]:
+                    lookup.remove(s[l])
+                    l += 1
+                l += 1
+            r += 1
+        maxL = max(maxL, r - l)
+        return maxL
+    
     
