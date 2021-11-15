@@ -17,4 +17,32 @@ class Solution:
                     visited.add((r+dr,c+dc))
         return image
         
+# as of 11/14/2021
+# class Solution:
+#     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
+#         m = len(image)
+#         n = len(image[0])
+#         oldColor = image[sr][sc]
+        
+#         drcs = [
+#             [0,1],
+#             [0,-1],
+#             [1,0],
+#             [-1,0]
+#         ]
+#         seen = set()
+#         from collections import deque
+#         q = deque([(sr, sc)])
+#         while q:
+#             poi = q.popleft()
+#             image[poi[0]][poi[1]] = newColor
+            
+#             for dr, dc in drcs:
+#                 if 0 <= poi[0] + dr < m and 0 <= poi[1] + dc < n and (poi[0] + dr, poi[1] + dc) not in seen and image[poi[0] + dr][poi[1] + dc] ==oldColor:
+#                     q.append((poi[0] + dr, poi[1] + dc))
+#                     seen.add((poi[0] + dr, poi[1] + dc))
+        
+#         return image
+                    
+        
         
