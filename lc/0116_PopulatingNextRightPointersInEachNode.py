@@ -8,45 +8,35 @@ class Node:
         self.next = next
 """
 
-class Solution:
-    def connect(self, root: 'Node') -> 'Node':
-        '''
-        bfs traversal the list level by level
-        '''
-        from collections import deque
-        q = deque()
-        if not root:
-            return root
+# class Solution:
+#     def connect(self, root: 'Node') -> 'Node':
+#         '''
+#         bfs traversal the list level by level
+#         '''
+#         from collections import deque
+#         q = deque()
+#         if not root:
+#             return root
         
-        q.append(root)
-        while q:
-            n = len(q)
-            for i in range(n):
-                node = q.popleft()
-                # add pointer
-                if i < n - 1:
-                    node.next = q[0]
+#         q.append(root)
+#         while q:
+#             n = len(q)
+#             for i in range(n):
+#                 node = q.popleft()
+#                 # add pointer
+#                 if i < n - 1:
+#                     node.next = q[0]
                 
-                # add children
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-            # print(n, len(q), [nd.val for nd in q])
+#                 # add children
+#                 if node.left:
+#                     q.append(node.left)
+#                 if node.right:
+#                     q.append(node.right)
+#             # print(n, len(q), [nd.val for nd in q])
         
-        return root
+#         return root
 
 # bfs solution as of 11/15/2021
-"""
-# Definition for a Node.
-class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
-        self.val = val
-        self.left = left
-        self.right = right
-        self.next = next
-"""
-
 # class Solution:
 #     def connect(self, root: 'Node') -> 'Node':
 #         '''
@@ -79,5 +69,27 @@ class Node:
 #             first.next = None
 #         return root
     
-                
+# better solution with no extra space usage, as of 11/15/2021
+class Solution:
+    def connect(self, root: 'Node') -> 'Node':
+        '''
+        no extra space, leverage parent node to collect subtrees of children
+        '''
+        # exception
+        if not root:
+            return root
+        
+        leftmost = root
+        while leftmost.left:
+            node = leftmost
+            while node:
+                node.left.next = node.right
+                if node.next:
+                    node.right.next = node.next.left
+                node = node.next
+            leftmost = leftmost.left
+        
+        return root
+    
+
     
