@@ -62,7 +62,36 @@ class Solution:
         prev.next = l1 if l1 else l2
         
         return prehead.next
-    
+
+# solution as of 11/16/2021, redudant pointers (p1,p2)
+#     def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+#         # exceptions
+#         if not l1:
+#             return l2
+#         if not l2:
+#             return l1
+        
+#         p1 = l1
+#         p2 = l2
+#         dh = ListNode()
+#         pdh = dh
+        
+#         while p1 and p2:
+#             if p1.val <= p2.val:
+#                 pdh.next = p1
+#                 p1 = p1.next
+#             else:
+#                 pdh.next = p2
+#                 p2 = p2.next
+
+#             pdh = pdh.next
+        
+#         if p1:
+#             pdh.next = p1
+#         else:
+#             pdh.next = p2
+            
+#         return dh.next        
                 
         
         
