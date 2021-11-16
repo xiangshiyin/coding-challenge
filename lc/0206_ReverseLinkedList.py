@@ -46,3 +46,24 @@ class Solution:
         
         return prev
     
+# solution as 11/16/2021
+# class Solution:
+#     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#         '''
+#         no stack
+#         '''
+#         # exceptions
+#         if not head or not head.next:
+#             return head
+        
+#         pre = head
+#         cur = head.next
+        
+#         while cur:
+#             tmp = cur.next
+#             cur.next = pre
+#             pre = cur
+#             cur = tmp
+#         head.next = None
+#         return pre
+
