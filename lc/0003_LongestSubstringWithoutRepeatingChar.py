@@ -111,3 +111,24 @@ class Solution:
         return maxL
     
     
+# # solution as of 11/28/2021
+# class Solution:
+#     def lengthOfLongestSubstring(self, s: str) -> int:
+#         '''
+#         use hash map to save index of all visited chars
+#         '''
+#         n = len(s)
+#         maxLen = 0
+#         l = 0
+#         visited = {}
+        
+#         for r in range(n):
+#             if s[r] in visited:
+#                 l = max(l, visited[s[r]]+1)
+#             maxLen = max(maxLen, r-l+1)
+#             visited[s[r]] = r
+        
+#         return maxLen
+            
+        
+        
