@@ -43,6 +43,31 @@ class Solution:
 #                     seen.add((poi[0] + dr, poi[1] + dc))
         
 #         return image
+
+# as of 12/01/2021
+# class Solution:
+#     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
+#         '''
+#         bfs solution
+#         '''
+#         m = len(image)
+#         n = len(image[0])
+#         drcs = [[0,1],[0,-1],[1,0],[-1,0]]
+        
+#         from collections import deque
+#         q = deque()
+#         q.append([sr,sc])
+#         startColor = image[sr][sc]
+        
+#         while q:
+#             r, c = q.popleft()
+#             image[r][c] = newColor
+#             for dr,dc in drcs:
+#                 if 0<=r+dr<m and 0<=c+dc<n and image[r+dr][c+dc]!=newColor and image[r+dr][c+dc]==startColor:
+#                     q.append([r+dr, c+dc])
+        
+#         return image
+    
                     
         
         
