@@ -92,4 +92,22 @@ class Solution:
         return root
     
 
-    
+# # as of 12/3/2021
+# class Solution:
+#     def connect(self, root: 'Node') -> 'Node':
+#         '''
+#         attention: "perfect binary tree"
+#         dfs solution, recursion
+#         '''
+#         if not root:
+#             return root
+        
+#         if root.left:
+#             root.left.next = root.right
+#             if root.next:
+#                 root.right.next = root.next.left
+            
+#         root.left = self.connect(root.left)
+#         root.right = self.connect(root.right)
+        
+#         return root
