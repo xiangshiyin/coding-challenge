@@ -60,4 +60,30 @@ class Solution:
                         ans[i][j] = min(ans[i][j], ans[i][j+1] + 1)
         return ans
     
-    
+# solution as of 12/3/2021
+# class Solution:
+#     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
+#         m = len(mat)
+#         n = len(mat[0])
+#         dist = [[m + n] * n for i in range(m)] # init the output
+        
+#         for r in range(m):
+#             for c in range(n):
+#                 if mat[r][c] == 0:
+#                     dist[r][c] = 0
+#                 for dr,dc in [[-1,0],[0,-1]]:
+#                     if 0<=r+dr<m and 0<=c+dc<n:
+#                         dist[r][c] = min(dist[r][c],dist[r+dr][c+dc]+1)
+                        
+#         for r in range(m-1,-1,-1):
+#             for c in range(n-1,-1,-1):
+#                 if mat[r][c] == 0:
+#                     dist[r][c] = 0
+#                 for dr,dc in [[1,0],[0,1]]:
+#                     if 0<=r+dr<m and 0<=c+dc<n:
+#                         dist[r][c] = min(dist[r][c],dist[r+dr][c+dc]+1)
+        
+#         return dist
+                
+                
+        
