@@ -130,5 +130,22 @@ class Solution:
         
 #         return maxLen
             
+# solution as of 8/24/2022
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s:
+            return 0
         
+        start = 0
+        maxL = 0
+        lookup = {}
+        
+        for i,v in enumerate(s):
+            if v in lookup and lookup[v] >= start:
+                start = lookup[v] + 1
+            lookup[v] = i
+            maxL = max(maxL, i-start+1)
+        
+        return maxL
+    
         
