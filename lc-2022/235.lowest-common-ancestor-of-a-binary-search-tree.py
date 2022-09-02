@@ -13,35 +13,48 @@
 #         self.right = None
 
 
+# class Solution:
+#     def lowestCommonAncestor(
+#         self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+#     ) -> "TreeNode":
+#         # find p
+#         path_p = set()
+#         node = root
+#         while node and node != p:
+#             path_p.add(node)
+#             if node.val > p.val:
+#                 node = node.left
+#             else:
+#                 node = node.right
+#         path_p.add(node)
+
+#         # find q
+#         node = root
+#         output = None
+#         while node != q:
+#             if node in path_p:
+#                 output = node
+#                 print(output.val)
+#             if node.val > q.val:
+#                 node = node.left
+#             else:
+#                 node = node.right
+#         if node in path_p:
+#             output = q
+#         return output
+
+
 class Solution:
     def lowestCommonAncestor(
         self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
     ) -> "TreeNode":
-        # find p
-        path_p = set()
-        node = root
-        while node and node != p:
-            path_p.add(node)
-            if node.val > p.val:
-                node = node.left
+        while root:
+            if root.val > p.val and root.val > q.val:
+                root = root.left
+            elif root.val < p.val and root.val < q.val:
+                root = root.right
             else:
-                node = node.right
-        path_p.add(node)
-
-        # find q
-        node = root
-        output = None
-        while node != q:
-            if node in path_p:
-                output = node
-                print(output.val)
-            if node.val > q.val:
-                node = node.left
-            else:
-                node = node.right
-        if node in path_p:
-            output = q
-        return output
+                return root
 
 
 # @lc code=end
