@@ -11,31 +11,55 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+# class Solution:
+#     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+#         output = []
+#         # exception
+#         if not root:
+#             return output
+
+#         from collections import deque
+#         q = deque()
+#         level = 0
+#         q.append([root, level])
+#         while q:
+#             cur = []
+#             while q and q[0][1] == level:
+#                 node, _ = q.popleft() # pop
+#                 cur.append(node.val)
+#                 if node.left:
+#                     q.append([node.left, level + 1])
+#                 if node.right:
+#                     q.append([node.right, level + 1])
+#             level += 1
+#             output.append(cur)
+
+#         return output
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        output = []
-        # exception
         if not root:
-            return output
+            return []
 
         from collections import deque
+
         q = deque()
-        level = 0
-        q.append([root, level])
+        q.append([root, 0])
+        output = []
         while q:
-            cur = []
-            while q and q[0][1] == level:
-                node, _ = q.popleft() # pop
-                cur.append(node.val)
-                if node.left:
-                    q.append([node.left, level + 1])
-                if node.right:
-                    q.append([node.right, level + 1])
-            level += 1
-            output.append(cur)
+            node, level = q.popleft()
+            if len(output) == level:
+                output.append([node.val])
+            else:
+                output[-1].append(node.val)
+
+            if node.left:
+                q.append([node.left, level + 1])
+            if node.right:
+                q.append([node.right, level + 1])
 
         return output
 
-        
+
 # @lc code=end
 
