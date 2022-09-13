@@ -11,14 +11,12 @@ class Solution:
         cur_total = 0
 
         for i, num in enumerate(nums):
-            if total == 2 * cur_total + num:
+            if cur_total * 2 + num == total:
                 return i
             cur_total += num
-        
+
         return -1
-        
 
 
-        
 # @lc code=end
 

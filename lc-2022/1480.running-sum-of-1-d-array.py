@@ -15,5 +15,6 @@ class Solution:
                 rsum.append(num + rsum[-1])
         return rsum
 
+
 # @lc code=end
 

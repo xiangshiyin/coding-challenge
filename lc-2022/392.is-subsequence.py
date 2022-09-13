@@ -9,7 +9,7 @@ class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
         ps = 0
         pt = 0
-        while pt < len(t) and ps < len(s):
+        while ps < len(s) and pt < len(t):
             while pt < len(t) and t[pt] != s[ps]:
                 pt += 1
             if pt < len(t):
@@ -23,7 +23,6 @@ class Solution:
         else:
             return False
 
-            
-        
+
 # @lc code=end
 

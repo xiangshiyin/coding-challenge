@@ -12,19 +12,20 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head:
+        if not head or not head.next:
             return head
         prev = None
-        cur = head
-        next = head.next
-        while cur:
-            cur.next = prev
-            if not next:
-                return cur
-            prev = cur
-            cur = next
-            next = cur.next
+        curr = head
+        next = curr.next
 
-        
+        while next:
+            curr.next = prev
+            prev = curr
+            curr = next
+            next = next.next
+        curr.next = prev
+        return curr
+
+
 # @lc code=end
 

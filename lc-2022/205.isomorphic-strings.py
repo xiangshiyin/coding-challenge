@@ -9,17 +9,16 @@ class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         n = len(s)
         saw = set()
-        map = {}
+        lookup = {}
         for i in range(n):
-            if s[i] not in map and t[i] not in saw:
-                map[s[i]] = t[i]
-            elif s[i] in map and map[s[i]] != t[i]:
+            if s[i] not in lookup and t[i] not in saw:
+                saw.add(t[i])
+                lookup[s[i]] = t[i]
+            elif not (s[i] in lookup and t[i] in saw and lookup[s[i]] == t[i]):
                 return False
-            elif s[i] not in map and t[i] in saw:
-                return False
-            saw.add(t[i])
+
         return True
 
-        
+
 # @lc code=end
 
