@@ -13,15 +13,27 @@ class Node:
         self.children = children
 """
 
+# class Solution:
+#     def preorder(self, root: 'Node') -> List[int]:
+#         output = []
+#         if not root:
+#             return []
+#         else:
+#             output.append(root.val)
+#             for child in root.children:
+#                 output.extend(self.preorder(child))
+#             return output
+
+
 class Solution:
-    def preorder(self, root: 'Node') -> List[int]:
+    def preorder(self, root: "Node") -> List[int]:
         output = []
         if not root:
-            return []
+            return output
         else:
             output.append(root.val)
-            for child in root.children:
-                output.extend(self.preorder(child))
+            for c in root.children:
+                output += self.preorder(c)
             return output
 
 
