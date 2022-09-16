@@ -45,20 +45,43 @@
 #         return bottom_up(root)[0]
 
 
+# class Solution:
+#     def isValidBST(self, root: Optional[TreeNode]) -> bool:
+#         def validate(root, min_v, max_v):
+#             if not root:
+#                 return True
+#             if min_v != None and root.val <= min_v:
+#                 return False
+#             if max_v != None and root.val >= max_v:
+#                 return False
+#             return validate(root.left, min_v, root.val) and validate(
+#                 root.right, root.val, max_v
+#             )
+
+#         return validate(root, None, None)
+
+# solution on 2022-09-15
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def validate(root, min_v, max_v):
-            if not root:
-                return True
-            if min_v != None and root.val <= min_v:
-                return False
-            if max_v != None and root.val >= max_v:
-                return False
-            return validate(root.left, min_v, root.val) and validate(
-                root.right, root.val, max_v
-            )
+        def validate(node):
+            if not node:
+                return True, 1 << 31, -(1 << 31) - 1  # flg, min, max
+            min_v = node.val
+            max_v = node.val
+            flg = True
+            if node.left:
+                flg_l, min_l, max_l = validate(node.left)
+                if not flg_l or min_v <= max_l:  # not valid
+                    return False, min_v, max_v
+                min_v = min(min_v, min_l)
+            if node.right:
+                flg_r, min_r, max_r = validate(node.right)
+                if not flg_r or max_v >= min_r:  # not valid
+                    return False, min_v, max_v
+                max_v = max(max_v, max_r)
+            return flg, min_v, max_v
 
-        return validate(root, None, None)
+        return validate(root)[0]
 
 
 # @lc code=end
