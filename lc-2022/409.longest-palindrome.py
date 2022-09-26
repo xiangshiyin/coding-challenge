@@ -19,18 +19,31 @@
 #         return maxL
 
 
+# class Solution:
+#     def longestPalindrome(self, s: str) -> int:
+#         from collections import Counter
+
+#         freq = Counter(s)
+#         maxL = 0
+#         for f in freq.values():
+#             maxL += (f // 2) * 2
+#             if maxL % 2 == 0 and f % 2 == 1:
+#                 maxL += 1
+#         return maxL
+
+
+# solution on 2022-09-26
 class Solution:
     def longestPalindrome(self, s: str) -> int:
         from collections import Counter
 
         freq = Counter(s)
-        maxL = 0
+        length = 0
         for f in freq.values():
-            maxL += (f // 2) * 2
-            if maxL % 2 == 0 and f % 2 == 1:
-                maxL += 1
-        return maxL
+            length += 2 * (f // 2)
+            if length % 2 == 0 and f % 2 == 1:
+                length += 1
+        return length
 
 
 # @lc code=end
-
