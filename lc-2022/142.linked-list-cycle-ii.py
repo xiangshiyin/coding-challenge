@@ -41,30 +41,52 @@
 #         return slow
 
 
+# class Solution:
+#     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#         if not head or not head.next:
+#             return None
+#         fast = slow = head
+#         while fast:  # find the first meet
+#             if not fast.next:
+#                 return None
+#             fast = fast.next.next  # 2 steps
+#             slow = slow.next  # 1 step
+#             if fast == slow:  # found the 1st meet
+#                 break
+
+#         if not fast:
+#             return None
+
+#         slow2 = head
+#         slow = fast
+#         while slow != slow2:
+#             slow = slow.next
+#             slow2 = slow2.next
+
+#         return slow
+
+
+# solution on 2022-09-26
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
             return None
-        fast = slow = head
-        while fast:  # find the first meet
+        slow = fast = head
+        while fast:
             if not fast.next:
                 return None
-            fast = fast.next.next  # 2 steps
-            slow = slow.next  # 1 step
-            if fast == slow:  # found the 1st meet
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
                 break
-
         if not fast:
             return None
-
-        slow2 = head
-        slow = fast
-        while slow != slow2:
+        slow = head
+        while slow != fast:
             slow = slow.next
-            slow2 = slow2.next
+            fast = fast.next
 
         return slow
 
 
 # @lc code=end
-
