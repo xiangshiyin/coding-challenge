@@ -11,6 +11,26 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# class Solution:
+#     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+#         self.rank = 0
+#         self.ans = None
+
+#         def inorder(root, k):
+#             if root.left:
+#                 inorder(root.left, k)
+#             self.rank += 1
+#             if self.rank == k:
+#                 self.ans = root.val
+#                 return
+#             if root.right:
+#                 inorder(root.right, k)
+
+#         inorder(root, k)
+#         return self.ans
+
+
+# solution on 2022-10-04
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         self.rank = 0
@@ -31,4 +51,3 @@ class Solution:
 
 
 # @lc code=end
-
