@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode id=144 lang=python3
+# @lc app=leetcode id=94 lang=python3
 # @lcpr version=30304
 #
-# [144] Binary Tree Preorder Traversal
+# [94] Binary Tree Inorder Traversal
 #
 
 
@@ -14,14 +14,14 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         output = []
         if root:
-            output.append(root.val)
             if root.left:
-                output += self.preorderTraversal(root.left)
+                output += self.inorderTraversal(root.left)
+            output.append(root.val)
             if root.right:
-                output += self.preorderTraversal(root.right)
+                output += self.inorderTraversal(root.right)
         return output
 
 
