@@ -13,7 +13,7 @@
 #             return True
 #         elif not root.left or not root.right:
 #             return False
-        
+
 #         # BFS search left and right, compare the results
 #         from collections import deque
 #         q1 = deque()
@@ -30,28 +30,28 @@
 #                 q1.append(n1.right)
 #             elif n1.val != 200:
 #                 q1.append(TreeNode(200))
-            
+
 #             if n1.left:
 #                 q1.append(n1.left)
 #             elif n1.val != 200:
 #                 q1.append(TreeNode(200))
-            
+
 #             if n2.left:
 #                 q2.append(n2.left)
 #             elif n2.val != 200:
 #                 q2.append(TreeNode(200))
-            
+
 #             if n2.right:
 #                 q2.append(n2.right)
 #             elif n2.val != 200:
 #                 q2.append(TreeNode(200))
 #         if len(q1) != len(q2):
 #             return False
-        
+
 #         return True
-    
+
 # class Solution:
-#     def isSymmetric(self, root: TreeNode) -> bool:            
+#     def isSymmetric(self, root: TreeNode) -> bool:
 #         '''
 #         recursive solution
 #         '''
@@ -61,19 +61,21 @@
 #             if not n1 or not n2:
 #                 return False
 #             return (n1.val == n2.val) & mirror(n1.right, n2.left) & mirror(n1.left, n2.right)
-        
+
 #         return mirror(root, root)
 
+
 class Solution:
-    def isSymmetric(self, root: TreeNode) -> bool:            
-        '''
+    def isSymmetric(self, root: TreeNode) -> bool:
+        """
         another iterative solution
-        '''
+        """
         from collections import deque
+
         q = deque()
         q.append(root)
         q.append(root)
-        
+
         while q:
             n1 = q.popleft()
             n2 = q.popleft()
@@ -88,4 +90,3 @@ class Solution:
             q.append(n1.right)
             q.append(n2.left)
         return True
-    

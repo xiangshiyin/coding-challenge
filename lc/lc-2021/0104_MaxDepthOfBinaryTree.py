@@ -7,7 +7,7 @@
 # class Solution:
 #     def maxDepth(self, root: TreeNode) -> int: # recursion
 #         self.ans = 0
-        
+
 #         def dfs(node, level):
 #             if not node:
 #                 return
@@ -16,12 +16,13 @@
 #             else:
 #                 dfs(node.left, level+1)
 #                 dfs(node.right, level+1)
-        
+
 #         if root:
 #             dfs(root, 1)
-        
+
 #         return self.ans
-    
+
+
 class Solution(object):
     def maxDepth(self, root):
         """
@@ -39,8 +40,5 @@ class Solution(object):
                     if l.right:
                         q.append(l.right)
                 level = q
-        
+
         return depth
-    
-            
-        

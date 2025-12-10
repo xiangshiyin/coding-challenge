@@ -1,11 +1,9 @@
 class TwoSum:
-
     def __init__(self):
         """
         Initialize your data structure here.
         """
         self.dict = {}
-        
 
     def add(self, number: int) -> None:
         """
@@ -15,7 +13,6 @@ class TwoSum:
             self.dict[number] = 1
         else:
             self.dict[number] += 1
-        
 
     def find(self, value: int) -> bool:
         """
@@ -29,7 +26,6 @@ class TwoSum:
                     if self.dict[key] > 1:
                         return True
         return False
-        
 
 
 # Your TwoSum object will be instantiated and called as such:

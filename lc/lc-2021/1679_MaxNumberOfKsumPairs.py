@@ -7,7 +7,7 @@
 #                 helper[num] = 1
 #             else:
 #                 helper[num] += 1
-        
+
 #         counter = 0
 #         # traverse the dictionary
 #         for num in helper:
@@ -19,7 +19,7 @@
 #                 counter += delta
 #                 helper[num] -= delta
 #                 helper[k - num] -= delta
-                        
+
 #         return counter
 
 # class Solution:
@@ -38,6 +38,7 @@
 #                 counter += min(helper[num], helper[k - num])
 #         return counter // 2
 
+
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         counter = 0
@@ -51,6 +52,5 @@ class Solution:
                     helper[num] = 1
                 else:
                     helper[num] += 1
-                    
+
         return counter
-    

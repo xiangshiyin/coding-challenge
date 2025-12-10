@@ -1,24 +1,16 @@
 class Solution:
     def intToRoman(self, num: int) -> str:
         bases = [1000, 100, 10, 1]
-        symbols = {
-            1: 'I',
-            5: 'V',
-            10: 'X',
-            50: 'L',
-            100: 'C',
-            500: 'D',
-            1000: 'M'
-        }
-        ans = ''
-        
+        symbols = {1: "I", 5: "V", 10: "X", 50: "L", 100: "C", 500: "D", 1000: "M"}
+        ans = ""
+
         ibase = 0
         while num > 0:
             while ibase < len(bases) and num // bases[ibase] == 0:
                 ibase += 1
             factor = num // bases[ibase]
             num = num % bases[ibase]
-            
+
             if factor < 4:
                 ans += symbols[bases[ibase]] * factor
             elif factor == 4:
@@ -30,4 +22,3 @@ class Solution:
             else:
                 ans += symbols[bases[ibase]] + symbols[bases[ibase] * 10]
         return ans
-    

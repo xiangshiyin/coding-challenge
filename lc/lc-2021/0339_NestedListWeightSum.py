@@ -2,7 +2,7 @@
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation
 # """
-#class NestedInteger:
+# class NestedInteger:
 #    def __init__(self, value=None):
 #        """
 #        If value is not specified, initializes an empty list.
@@ -48,10 +48,10 @@
 #         '''
 #         from collections import deque
 #         total = 0
-        
+
 #         # initialize the queue
 #         queue = deque([[1, item] for item in nestedList])
-        
+
 #         # bfs search and update total
 #         while queue:
 #             # pop left
@@ -64,20 +64,20 @@
 #                 for element in item.getList():
 #                     queue.append([level+1, element])
 #         return total
-            
-            
+
+
 # class Solution:
 #     def depthSum(self, nestedList: List[NestedInteger]) -> int:
 #         '''
 #         The DFS solution
 #         '''
 #         total = 0
-        
+
 #         # dfs search and update total
 #         for element in nestedList:
 #             # get an element
 #             level = 1
-            
+
 #             def traverse(item, level, total):
 #                 if item.isInteger():
 #                     total += level * item.getInteger()
@@ -88,28 +88,27 @@
 #                 return total
 #             total += traverse(element, level, 0)
 #         return total
-            
-                
+
+
 class Solution:
     def depthSum(self, nestedList: List[NestedInteger]) -> int:
-        '''
+        """
         The DFS solution with stack
-        '''
+        """
         total = 0
-        
+
         # dfs search and update total
         for element in nestedList:
-            stack = [[1,element]]
+            stack = [[1, element]]
             while stack:
                 # pop
-                level,item = stack.pop()
+                level, item = stack.pop()
                 # evaluate
                 if item.isInteger():
-                    total += level*item.getInteger()
+                    total += level * item.getInteger()
                 else:
                     # append children
                     for subitem in item.getList():
-                        stack.append([level+1, subitem])
-                        
-        return total 
-    
+                        stack.append([level + 1, subitem])
+
+        return total

@@ -7,24 +7,26 @@ class Node:
         self.random = random
 """
 
+
 class Solution:
     def __init__(self):
         self.visited = {}
-        
-    def copyRandomList(self, head: 'Node') -> 'Node':
-        if head==None:
+
+    def copyRandomList(self, head: "Node") -> "Node":
+        if head == None:
             return None
-        
+
         if head in self.visited:
             return self.visited[head]
-        
+
         node = Node(head.val, None, None)
         self.visited[head] = node
-        
+
         node.next = self.copyRandomList(head.next)
         node.random = self.copyRandomList(head.random)
-        
+
         return node
+
 
 # solution on 2/10/2021
 # class Solution:
@@ -38,7 +40,7 @@ class Solution:
 #         nodes = []
 #         pos = {}
 #         idx = 0
-        
+
 #         # 1st pass: copy the next nodes
 #         while head:
 #             # create a new node
@@ -51,7 +53,7 @@ class Solution:
 #             # update pointer
 #             prev = prev.next
 #             head = head.next
-  
+
 #         # 2nd pass: connect the random pointers
 #         head = head1
 #         tmp = head2.next
@@ -61,6 +63,5 @@ class Solution:
 #                 tmp.random = nodes[pos[head.random]]
 #             head = head.next
 #             tmp = tmp.next
-        
-#         return head2.next       
-        
+
+#         return head2.next

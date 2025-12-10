@@ -7,7 +7,7 @@ class Solution:
                 helper[num] = 1
             else:
                 helper[num] += 1
-        
+
         # traverse nums2, generate output
         output = []
         for num in nums2:

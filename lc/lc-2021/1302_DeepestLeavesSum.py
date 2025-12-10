@@ -7,9 +7,10 @@
 class Solution:
     def deepestLeavesSum(self, root: TreeNode) -> int:
         from collections import deque
+
         q = deque()
         q.append(root)
-        
+
         while q:
             n = len(q)
             res = 0
@@ -22,4 +23,3 @@ class Solution:
                 if node.right:
                     q.append(node.right)
         return res
-        

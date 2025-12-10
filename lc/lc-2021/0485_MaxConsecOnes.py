@@ -1,4 +1,4 @@
-'''
+"""
 Given a binary array, find the maximum number of consecutive 1s in this array.
 
 Example 1:
@@ -10,7 +10,7 @@ Note:
 
 The input array will only contain 0 and 1.
 The length of input array is a positive integer and will not exceed 10,000
-'''
+"""
 
 ## solution on 12/06/2020
 # class Solution:
@@ -46,33 +46,33 @@ The length of input array is a positive integer and will not exceed 10,000
 #                 len_consec_current = 0
 #         return len_consec_max
 
+
 ## 12/18/2020
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         # handle exceptions
-        if nums==None:
+        if nums == None:
             return None
-        
+
         N = len(nums)
-        if N==0:
+        if N == 0:
             return 0
-        if N==1:
-            if nums[0]==0:
+        if N == 1:
+            if nums[0] == 0:
                 return 0
             else:
                 return 1
-            
+
         # do the counting
         max_len = 0
         current_len = 0
         for num in nums:
-            if num==1:
+            if num == 1:
                 current_len += 1
             else:
                 if current_len > max_len:
                     max_len = current_len
                 current_len = 0
         if current_len > max_len:
-            max_len = current_len        
+            max_len = current_len
         return max_len
-

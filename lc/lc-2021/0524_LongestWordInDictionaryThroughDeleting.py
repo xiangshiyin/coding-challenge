@@ -5,7 +5,7 @@
 #         '''
 #         # sort the word list by length and lexicographical order
 #         d1 = sorted(d, key = lambda x: (-1 * len(x), x))
-        
+
 #         for w in d1:
 #             p1 = 0
 #             p2 = 0
@@ -21,17 +21,17 @@
 #                 continue
 #             else:
 #                 return w
-        
+
 #         return ""
-        
-        
+
+
 class Solution:
     def findLongestWord(self, s: str, d: List[str]) -> str:
-        '''
+        """
         with pre-sorting
-        '''
-        result = ''
-        
+        """
+        result = ""
+
         for w in d:
             p1 = 0
             p2 = 0
@@ -50,9 +50,5 @@ class Solution:
                     result = w
                 elif len(w) == len(result) and w < result:
                     result = w
-        
+
         return result
-        
-        
-        
-        

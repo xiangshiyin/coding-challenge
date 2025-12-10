@@ -3,6 +3,7 @@
 # @return an integer
 # def isBadVersion(version):
 
+
 class Solution:
     def firstBadVersion(self, n):
         """
@@ -15,7 +16,7 @@ class Solution:
         while l <= r:
             if l == n:
                 return l
-            
+
             m = (l + r) // 2
             if isBadVersion(m):
                 first = m
@@ -23,4 +24,3 @@ class Solution:
             else:
                 l = m + 1
         return first
-                

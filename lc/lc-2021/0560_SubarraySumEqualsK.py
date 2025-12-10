@@ -3,7 +3,7 @@
 #         ## brute force method 1: time limit exceeded
 #         N = len(nums)
 #         count = 0
-#         cumsum = []    
+#         cumsum = []
 #         for i in range(N):
 #             if i>0:
 #                 for j in range(i):
@@ -31,12 +31,12 @@
 #                 if cumsum[j]-cumsum[i]==k:
 #                     count += 1
 #         return count
-            
+
 # class Solution:
 #     def subarraySum(self, nums: List[int], k: int) -> int:
 #         ## brute force method 3: time limit exceeded
 #         N = len(nums)
-#         count = 0  
+#         count = 0
 #         for i in range(N):
 #             cumsum = 0
 #             for j in range(i,N):
@@ -44,23 +44,23 @@
 #                 if cumsum==k:
 #                     count += 1
 #         return count
-    
+
+
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         ## hash table
         N = len(nums)
         count = 0
         cumsum = 0
-        tb = {0:1}
+        tb = {0: 1}
         # build the lookup table on the go
         for num in nums:
             cumsum += num
-            if cumsum-k in tb:
-                count += tb[cumsum-k]
+            if cumsum - k in tb:
+                count += tb[cumsum - k]
             # update the lookup table
             if cumsum not in tb:
                 tb[cumsum] = 1
             else:
                 tb[cumsum] += 1
         return count
-    

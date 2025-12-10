@@ -20,7 +20,7 @@
 #                     if counter>0:
 #                         return True
 #             return False
-                
+
 # class Solution:
 #     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
 #         '''
@@ -55,14 +55,15 @@
 #                         if idx-tb2[cumsum]>1: # at least length 2
 #                             return True
 #             return False
-                
+
+
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
-        '''
+        """
         hash table solution, rewrote the previous one
-        '''
+        """
         N = len(nums)
-        if N<=1:
+        if N <= 1:
             return False
         else:
             cumsum = 0
@@ -71,17 +72,16 @@ class Solution:
             for idx in range(N):
                 cumsum += nums[idx]
                 # set the target of interest
-                if k==0:
+                if k == 0:
                     target = cumsum
                 else:
-                    target = cumsum%k
+                    target = cumsum % k
                 # check the condition
-                if target==0 and idx>=1: # edge case, be careful
+                if target == 0 and idx >= 1:  # edge case, be careful
                     return True
                 if target not in tb:
                     tb[target] = idx
                 else:
-                    if idx-tb[target]>1: # at least length 2
+                    if idx - tb[target] > 1:  # at least length 2
                         return True
-            return False                    
-        
+            return False

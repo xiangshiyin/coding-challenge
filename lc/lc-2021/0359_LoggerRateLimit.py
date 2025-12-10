@@ -1,11 +1,9 @@
 class Logger:
-
     def __init__(self):
         """
         Initialize your data structure here.
         """
         self.timer = {}
-        
 
     def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
         """
@@ -22,7 +20,6 @@ class Logger:
             else:
                 self.timer[message] = timestamp + 10
                 return True
-        
 
 
 # Your Logger object will be instantiated and called as such:

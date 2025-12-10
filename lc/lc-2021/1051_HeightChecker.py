@@ -1,18 +1,17 @@
-
-'''
+"""
 Students are asked to stand in non-decreasing order of heights for an annual photo.
 
 Return the minimum number of students that must move in order for all students to be standing in non-decreasing order of height.
 
 Notice that when a group of students is selected they can reorder in any possible way between themselves and the non selected students remain on their seats.
 
- 
+
 
 Example 1:
 
 Input: heights = [1,1,4,2,1,3]
 Output: 3
-Explanation: 
+Explanation:
 Current array : [1,1,4,2,1,3]
 Target array  : [1,1,1,2,3,4]
 On index 2 (0-based) we have 4 vs 1 so we have to move this student.
@@ -26,33 +25,33 @@ Example 3:
 
 Input: heights = [1,2,3,4,5]
 Output: 0
-'''
+"""
+
 
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
-        '''
+        """
         The python function based method
-        '''
+        """
         # handle the exceptions
-        if heights==None or heights==[]:
+        if heights == None or heights == []:
             return None
-        if len(heights)==1:
+        if len(heights) == 1:
             return 0
-        
+
         # sort the list
         # print(heights)
         heights2 = sorted(heights)
         # print(heights2)
-        
-        # calculate the number of moves
-        moves = sum([
-            0 if heights[i]==heights2[i] else 1
-            for i in range(len(heights))
-        ])
-        
-        return moves
-    
-'''
-Need to review the common types of sorting
-'''   
 
+        # calculate the number of moves
+        moves = sum(
+            [0 if heights[i] == heights2[i] else 1 for i in range(len(heights))]
+        )
+
+        return moves
+
+
+"""
+Need to review the common types of sorting
+"""

@@ -20,7 +20,7 @@
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
         N = len(nums)
-        if N<=1:
+        if N <= 1:
             return -1
         else:
             maxSum = -1
@@ -28,38 +28,35 @@ class Solution:
             tb = {}
             for num in nums:
                 if num not in tb:
-                    tb[num]=1
+                    tb[num] = 1
                 else:
-                    tb[num]+=1
+                    tb[num] += 1
             # print(tb)
             # do the look up
             left = 1
-            right = k-2
-            while left<right:
+            right = k - 2
+            while left < right:
                 # print(left, right)
                 if left in tb and right in tb:
-                    if left+right<k:
-                        maxSum = max(maxSum, left+right)
+                    if left + right < k:
+                        maxSum = max(maxSum, left + right)
                         left += 1
-                        if tb[right]>1 and 2*right<k:
-                            maxSum = max(maxSum, 2*right)
+                        if tb[right] > 1 and 2 * right < k:
+                            maxSum = max(maxSum, 2 * right)
                     else:
                         right -= 1
-                        if tb[left]>1 and 2*left<k:
-                            maxSum = max(maxSum, 2*left)
+                        if tb[left] > 1 and 2 * left < k:
+                            maxSum = max(maxSum, 2 * left)
                 elif left in tb:
                     right -= 1
-                    if tb[left]>1 and 2*left<k:
-                        maxSum = max(maxSum, 2*left)
+                    if tb[left] > 1 and 2 * left < k:
+                        maxSum = max(maxSum, 2 * left)
                 elif right in tb:
                     left += 1
-                    if tb[right]>1 and 2*right<k:
-                        maxSum = max(maxSum, 2*right)    
+                    if tb[right] > 1 and 2 * right < k:
+                        maxSum = max(maxSum, 2 * right)
                 else:
                     left += 1
                     right -= 1
-                    
+
             return maxSum
-            
-            
-            

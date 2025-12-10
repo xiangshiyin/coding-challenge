@@ -22,6 +22,6 @@ class Solution:
                 prev = cur
             cur = cur.next
         return dh.next
-        
-# @lc code=end
 
+
+# @lc code=end

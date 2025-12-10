@@ -35,7 +35,7 @@ class Solution(object):
                         rlist.append([index, match])
         if len(rlist) == 1:
             rlist = rlist[0]
-        return(rlist)
+        return rlist
 
     def createDict(self, nums):
         tb_lookup = {}
@@ -44,7 +44,8 @@ class Solution(object):
                 tb_lookup[num].append(index)
             else:
                 tb_lookup[num] = [index]
-        return(tb_lookup)
+        return tb_lookup
+
 
 ## on 12/24/2020
 class Solution:
@@ -53,15 +54,14 @@ class Solution:
         if nums is None or target is None:
             return None
         N = len(nums)
-        if N<=1:
+        if N <= 1:
             return []
-        
+
         # traverse the list
         tb = {}
-        for idx,num in enumerate(nums):
-            if target-num in tb:
-                return [tb[target-num],idx]
+        for idx, num in enumerate(nums):
+            if target - num in tb:
+                return [tb[target - num], idx]
             if num not in tb:
                 tb[num] = idx
         return []
-        

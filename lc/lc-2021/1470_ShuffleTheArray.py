@@ -7,4 +7,3 @@ class Solution:
             ans.append(nums[ix + n])
             ix += 1
         return ans
-        

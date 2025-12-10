@@ -14,6 +14,5 @@ class Solution:
             node.left = helper(left, m - 1)
             node.right = helper(m + 1, right)
             return node
+
         return helper(0, len(nums) - 1)
-    
-    

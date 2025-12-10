@@ -11,7 +11,7 @@
 #         while h.next:
 #             n += 1
 #             h = h.next
-        
+
 #         # 2. find the middle node
 #         counter = 0
 #         h = ListNode(next=head)
@@ -23,12 +23,11 @@
 # 2nd solution as of 11/12/2021
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        '''
+        """
         fast and slow pointers
-        '''
+        """
         slow = fast = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
         return slow
-        

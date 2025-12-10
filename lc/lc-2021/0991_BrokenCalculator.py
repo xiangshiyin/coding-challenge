@@ -1,8 +1,8 @@
 class Solution:
     def brokenCalc(self, X: int, Y: int) -> int:
-        '''
+        """
         Greedy
-        '''
+        """
         step = 0
         if X > Y:
             return X - Y
@@ -20,4 +20,3 @@ class Solution:
                 return step
             else:
                 return step + (X - Y)
-            

@@ -6,7 +6,7 @@ class Solution:
             return ""
         elif n == 1:
             return strs[0]
-        
+
         # traverse the list
         ans = strs[0]
         ix = 1
@@ -18,9 +18,7 @@ class Solution:
                 return ""
             else:
                 ans = ans[:jx]
-            
+
             ix += 1
-        
+
         return ans
-    
-    

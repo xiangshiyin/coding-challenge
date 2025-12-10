@@ -12,7 +12,7 @@
 #         from collections import deque
 #         q = deque([root])
 #         ans = []
-        
+
 #         while q:
 #             n = len(q)
 #             cumsum = 0
@@ -31,12 +31,12 @@
 
 class Solution:
     def averageOfLevels(self, root: TreeNode) -> List[float]:
-        '''
+        """
         dfs
-        '''
+        """
         cumsum = []
         count = []
-        
+
         def dfs(node, level):
             if len(cumsum) == level:
                 cumsum.append(node.val)
@@ -44,22 +44,12 @@ class Solution:
             else:
                 cumsum[level] += node.val
                 count[level] += 1
-            
+
             if node.left:
                 dfs(node.left, level + 1)
             if node.right:
                 dfs(node.right, level + 1)
-        
+
         dfs(root, 0)
-            
+
         return [total / n for total, n in zip(cumsum, count)]
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        

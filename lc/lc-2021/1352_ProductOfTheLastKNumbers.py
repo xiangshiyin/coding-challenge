@@ -1,10 +1,9 @@
 class ProductOfNumbers:
-
     def __init__(self):
         self.preprod = [1]
 
     def add(self, num: int) -> None:
-        if num==0:
+        if num == 0:
             self.preprod = [1]
         else:
             self.preprod.append(self.preprod[-1] * num)
@@ -12,7 +11,7 @@ class ProductOfNumbers:
 
     def getProduct(self, k: int) -> int:
         if k < len(self.preprod):
-            return int(self.preprod[-1] / self.preprod[-(k+1)])
+            return int(self.preprod[-1] / self.preprod[-(k + 1)])
         else:
             return 0
 

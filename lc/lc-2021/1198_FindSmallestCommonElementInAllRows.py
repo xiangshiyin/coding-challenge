@@ -32,24 +32,23 @@ class Solution:
         pos = [0 for i in range(m)]
         cur_max = 0
         cnt = 0
-        
+
         while True:
             for i in range(m):
                 while pos[i] < n and mat[i][pos[i]] < cur_max:
                     pos[i] += 1
-                
+
                 if pos[i] >= n:
                     return -1
-                
+
                 if mat[i][pos[i]] != cur_max:
                     cur_max = mat[i][pos[i]]
                     cnt = 1
                 else:
-                    if pos[i] == 0 or (pos[i] > 0 and mat[i][pos[i]] != mat[i][pos[i] - 1]):
+                    if pos[i] == 0 or (
+                        pos[i] > 0 and mat[i][pos[i]] != mat[i][pos[i] - 1]
+                    ):
                         cnt += 1
                     if cnt == m:
                         return cur_max
                 # print(cur_max)
-        
-        
-        

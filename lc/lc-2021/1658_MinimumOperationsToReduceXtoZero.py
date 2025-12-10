@@ -8,13 +8,13 @@ class Solution:
         elif total == x:
             return N
         # print(total)
-        
+
         # when total > x:
         left = 0
         right = 0
         max_len = 0
         curr_sum = nums[0]
-        
+
         while left <= right and right < N:
             if curr_sum <= total - x:
                 if curr_sum == total - x:
@@ -25,14 +25,11 @@ class Solution:
             else:
                 curr_sum -= nums[left]
                 left += 1
-                if left>right:
+                if left > right:
                     right = left
                     curr_sum += nums[right]
             # print(max_len, curr_sum, left, right)
-        if max_len==0:
+        if max_len == 0:
             return -1
         else:
-            return len(nums)-max_len
-        
-        
-        
+            return len(nums) - max_len

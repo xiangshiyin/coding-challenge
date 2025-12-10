@@ -1,4 +1,3 @@
-
 # class Solution:
 #     def thirdMax(self, nums: List[int]) -> int:
 #         # exceptions
@@ -7,12 +6,12 @@
 #         N = len(nums)
 #         if N==0:
 #             return float('-inf')
-        
+
 #         # traverse the list
 #         max_1st = nums[0]
 #         max_2nd = None
 #         max_3rd = None
-        
+
 #         for idx in range(1,N):
 #             if nums[idx] > max_1st:
 #                 max_3rd = max_2nd
@@ -32,19 +31,20 @@
 #             elif nums[idx] > max_3rd:
 #                 max_3rd = nums[idx]
 #             print(max_1st, max_2nd, max_3rd)
-#         if max_3rd != None:    
+#         if max_3rd != None:
 #             return max_3rd
 #         else:
 #             return max_1st
-        
+
+
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
         # exceptions
-        if nums==None:
-            return float('-inf') 
-        if len(nums)==0:
-            return float('-inf')
-        
+        if nums == None:
+            return float("-inf")
+        if len(nums) == 0:
+            return float("-inf")
+
         # find the answer
         # Make a Set with the input.
         nums = set(nums)
@@ -61,4 +61,4 @@ class Solution:
         nums.remove(maximum)
         second_maximum = max(nums)
         nums.remove(second_maximum)
-        return max(nums)        
+        return max(nums)

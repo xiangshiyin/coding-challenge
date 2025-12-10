@@ -16,18 +16,19 @@
 #             res.append(root.val)
 #             if root.right:
 #                 res += self.inorderTraversal(root.right)
-        
+
 #         return res
-    
+
 
 class Solution:
-    '''
+    """
     iterative solution
-    '''
+    """
+
     def inorderTraversal(self, root: TreeNode) -> List[int]:
         res = []
         stack = []
-        
+
         while True:
             while root:
                 stack.append(root)
@@ -37,4 +38,3 @@ class Solution:
             node = stack.pop()
             res.append(node.val)
             root = node.right
-    

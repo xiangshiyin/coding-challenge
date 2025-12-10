@@ -1,5 +1,4 @@
 class Trie:
-
     def __init__(self):
         """
         Initialize your data structure here.
@@ -15,7 +14,7 @@ class Trie:
             if l not in curr:
                 curr[l] = {}
             curr = curr[l]
-        curr['#'] = '#' # end of a word
+        curr["#"] = "#"  # end of a word
 
     def search(self, word: str) -> bool:
         """
@@ -27,11 +26,10 @@ class Trie:
                 return False
             else:
                 curr = curr[l]
-        if '#' in curr:
+        if "#" in curr:
             return True
         else:
             return False
-        
 
     def startsWith(self, prefix: str) -> bool:
         """
@@ -44,7 +42,6 @@ class Trie:
             else:
                 curr = curr[l]
         return True
-        
 
 
 # Your Trie object will be instantiated and called as such:

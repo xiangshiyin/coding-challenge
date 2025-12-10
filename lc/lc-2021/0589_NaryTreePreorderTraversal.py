@@ -6,14 +6,15 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
-    def preorder(self, root: 'Node') -> List[int]:
+    def preorder(self, root: "Node") -> List[int]:
         s = []
         ans = []
-        
+
         if not root:
             return ans
-        
+
         s.append(root)
         while s:
             node = s.pop()
@@ -21,4 +22,3 @@ class Solution:
             for c in node.children[::-1]:
                 s.append(c)
         return ans
-    

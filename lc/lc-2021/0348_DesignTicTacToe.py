@@ -1,5 +1,4 @@
 class TicTacToe:
-
     def __init__(self, n: int):
         """
         Initialize your data structure here.
@@ -9,8 +8,7 @@ class TicTacToe:
         # use an array of length 2n + 2 to represent the status of each player
         # 1st row for player 1, 2nd row for player 2
         # the sequence: n rows, n columns, upperleft->lowerright, lowerleft->upperright
-        self.status = [[0] * (2 * n + 2) for i in range(2)] 
-        
+        self.status = [[0] * (2 * n + 2) for i in range(2)]
 
     def move(self, row: int, col: int, player: int) -> int:
         """
@@ -25,22 +23,25 @@ class TicTacToe:
         """
         # # update the game board
         # self.board[row][col] = player
-        
+
         # update the player status
         self.status[player - 1][row] += player
         self.status[player - 1][self.n + col] += player
         if row == col:
             self.status[player - 1][2 * self.n] += player
-        if row == self.n - 1 - col: 
+        if row == self.n - 1 - col:
             self.status[player - 1][2 * self.n + 1] += player
-        
+
         # update game status
-        if self.status[player - 1][row] == self.n * player or self.status[player - 1][self.n + col] == self.n * player or self.status[player - 1][2 * self.n] == self.n * player or self.status[player - 1][2 * self.n + 1] == self.n * player:
+        if (
+            self.status[player - 1][row] == self.n * player
+            or self.status[player - 1][self.n + col] == self.n * player
+            or self.status[player - 1][2 * self.n] == self.n * player
+            or self.status[player - 1][2 * self.n + 1] == self.n * player
+        ):
             return player
         else:
             return 0
-        
-        
 
 
 # Your TicTacToe object will be instantiated and called as such:

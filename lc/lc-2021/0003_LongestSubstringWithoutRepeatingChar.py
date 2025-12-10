@@ -69,7 +69,7 @@ Created on Thu Nov 23 15:58:47 2017
 #         # exceptions
 #         if N <= 1:
 #             return N
-        
+
 #         # traverse string, utilize hash table to help check repeated chars
 #         tb = {}
 #         start = 0
@@ -79,13 +79,14 @@ Created on Thu Nov 23 15:58:47 2017
 #             if s[end] in tb and tb[s[end]] >= start:
 #                 max_len = max(max_len, end - start)
 #                 start = tb[s[end]] + 1
-            
-#             tb[s[end]] = end           
+
+#             tb[s[end]] = end
 #             end += 1
-        
+
 #         max_len = max(max_len, end - start)
-        
+
 #         return max_len
+
 
 # as of 11/13/2021
 class Solution:
@@ -95,7 +96,7 @@ class Solution:
         n = len(s)
         if n <= 1:
             return n
-        
+
         l = r = 0
         while r < n:
             if s[r] not in lookup:
@@ -109,8 +110,8 @@ class Solution:
             r += 1
         maxL = max(maxL, r - l)
         return maxL
-    
-    
+
+
 # # solution as of 11/28/2021
 # class Solution:
 #     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -121,31 +122,30 @@ class Solution:
 #         maxLen = 0
 #         l = 0
 #         visited = {}
-        
+
 #         for r in range(n):
 #             if s[r] in visited:
 #                 l = max(l, visited[s[r]]+1)
 #             maxLen = max(maxLen, r-l+1)
 #             visited[s[r]] = r
-        
+
 #         return maxLen
-            
+
+
 # solution as of 8/24/2022
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if not s:
             return 0
-        
+
         start = 0
         maxL = 0
         lookup = {}
-        
-        for i,v in enumerate(s):
+
+        for i, v in enumerate(s):
             if v in lookup and lookup[v] >= start:
                 start = lookup[v] + 1
             lookup[v] = i
-            maxL = max(maxL, i-start+1)
-        
+            maxL = max(maxL, i - start + 1)
+
         return maxL
-    
-        

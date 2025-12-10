@@ -9,12 +9,16 @@ class Solution:
         self.ix = 0
         self.flipped = []
         self.n = len(voyage)
-        
+
         def preorder(node):
             if node:
                 if node.val == voyage[self.ix]:
                     self.ix += 1
-                    if self.ix < self.n and node.left and node.left.val != voyage[self.ix]:
+                    if (
+                        self.ix < self.n
+                        and node.left
+                        and node.left.val != voyage[self.ix]
+                    ):
                         self.flipped.append(node.val)
                         preorder(node.right)
                         preorder(node.left)
@@ -23,16 +27,13 @@ class Solution:
                         preorder(node.right)
                 else:
                     self.flipped.append(-1)
-        
+
         preorder(root)
-        
+
         if self.flipped:
             for flg in self.flipped:
                 if flg == -1:
                     self.flipped = [-1]
                     break
-        
+
         return self.flipped
-            
-        
-        

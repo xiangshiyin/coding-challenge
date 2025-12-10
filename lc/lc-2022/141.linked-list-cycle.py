@@ -11,6 +11,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if not head or not head.next:
@@ -26,7 +27,5 @@ class Solution:
             else:
                 return False
 
-        
-        
-# @lc code=end
 
+# @lc code=end

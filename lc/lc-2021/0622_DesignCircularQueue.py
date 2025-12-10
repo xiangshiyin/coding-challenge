@@ -1,14 +1,14 @@
 class MyCircularQueue:
-    '''
+    """
     Memory only beats 9%
-    '''
+    """
+
     def __init__(self, k: int):
         self.head = 0
         self.tail = -1
         self.queue = [-1] * k
         self.k = k
         self.size = 0
-        
 
     def enQueue(self, value: int) -> bool:
         if not self.isFull():
@@ -17,7 +17,6 @@ class MyCircularQueue:
             self.size += 1
             return True
         return False
-        
 
     def deQueue(self) -> bool:
         if self.isEmpty():
@@ -30,7 +29,6 @@ class MyCircularQueue:
         if self.isEmpty():
             return -1
         return self.queue[self.head]
-        
 
     def Rear(self) -> int:
         if self.isEmpty():
@@ -42,8 +40,8 @@ class MyCircularQueue:
 
     def isFull(self) -> bool:
         return self.size == self.k
-        
-        
+
+
 # ## Mock on 3/26/2021
 # class MyCircularQueue:
 #     '''
@@ -74,9 +72,9 @@ class MyCircularQueue:
 #                 while self.input:
 #                     self.output.append(self.input.pop())
 #                 self.output.pop()
-#             self.size -= 1    
+#             self.size -= 1
 #             return True
-        
+
 
 #     def Front(self) -> int:
 #         if not self.output:
@@ -95,11 +93,11 @@ class MyCircularQueue:
 #                 return self.input[-1]
 #             elif self.output:
 #                 return self.output[0]
-        
+
 
 #     def isEmpty(self) -> bool:
 #         return self.size == 0
-        
+
 
 #     def isFull(self) -> bool:
 #         return self.size == self.k
@@ -122,7 +120,7 @@ class MyCircularQueue:
 #         self.k = k
 #         self.head = 0
 #         self.tail = -1
-        
+
 
 #     def enQueue(self, value: int) -> bool:
 #         if self.isFull():
@@ -132,7 +130,7 @@ class MyCircularQueue:
 #             self.tail = (self.tail + 1) % self.k
 #             # print(self.q)
 #             return True
-        
+
 
 #     def deQueue(self) -> bool:
 #         if self.isEmpty():
@@ -141,7 +139,7 @@ class MyCircularQueue:
 #             self.q[self.head] = -1
 #             self.head = (self.head + 1) % self.k
 #             # print(self.q)
-#             return True        
+#             return True
 
 #     def Front(self) -> int:
 #         if self.isEmpty():
@@ -154,7 +152,7 @@ class MyCircularQueue:
 #             return -1
 #         else:
 #             return self.q[self.tail]
-        
+
 
 #     def isEmpty(self) -> bool:
 #         return self.q[self.head] == -1

@@ -7,7 +7,7 @@
 # class Solution:
 #     '''
 #     recursive solution
-#     '''    
+#     '''
 #     def preorderTraversal(self, root: TreeNode) -> List[int]:
 #         res = []
 #         if root:
@@ -17,25 +17,25 @@
 #             if root.right:
 #                 res += self.preorderTraversal(root.right)
 #         return res
-            
-            
+
+
 class Solution:
-    '''
+    """
     iterative solution
-    '''
+    """
+
     def preorderTraversal(self, root: TreeNode) -> List[int]:
         res = []
         stack = []
-        
+
         if root:
             stack.append(root)
         while stack:
             node = stack.pop()
             res.append(node.val)
-    
+
             if node.right:
                 stack.append(node.right)
             if node.left:
                 stack.append(node.left)
         return res
-            

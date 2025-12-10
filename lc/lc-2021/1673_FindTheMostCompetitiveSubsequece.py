@@ -4,7 +4,7 @@
 #         brutal force, time limit exceeded
 #         '''
 #         N = len(nums)
-        
+
 #         start = 0
 #         output = []
 #         while k > 0:
@@ -22,22 +22,18 @@
 
 class Solution:
     def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
-        '''
+        """
         stack solution
-        '''
+        """
         N = len(nums)
-        
+
         # traverse the list
         stack = []
         skipped = 0
-        for i,num in enumerate(nums):
+        for i, num in enumerate(nums):
             while stack and num < stack[-1] and skipped < N - k:
                 pop = stack.pop()
                 skipped += 1
             stack.append(num)
-            
+
         return stack[:k]
-                
-                
-        
-        

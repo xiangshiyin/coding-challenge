@@ -25,7 +25,7 @@
 #         '''
 #         res = []
 #         stack = []
-        
+
 #         if root:
 #             stack.append(root)
 #         while stack:
@@ -37,11 +37,12 @@
 #                 stack.append(node.right)
 #         return res[::-1]
 
+
 class Solution:
     def postorderTraversal(self, root: TreeNode) -> List[int]:
-        '''
+        """
         iterative solution
-        '''
+        """
         res = []
         if root:
             stack = [(root, False)]
@@ -55,8 +56,5 @@ class Solution:
                         stack.append((node.right, False))
                     if node.left:
                         stack.append((node.left, False))
-        
-        return res
-    
-        
 
+        return res

@@ -6,17 +6,17 @@
 class Solution:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
         # exceptions
-        if head==None or head.next==None:
+        if head == None or head.next == None:
             return head
-        
+
         # traverse the linked list
         left = head
         right = head.next
-        
+
         while right:
-            while right.val==left.val:
+            while right.val == left.val:
                 right = right.next
-                if right==None:
+                if right == None:
                     break
             if right:
                 left.next = right
@@ -26,5 +26,3 @@ class Solution:
                 left.next = None
                 break
         return head
-                
-                

@@ -9,12 +9,12 @@ class Solution:
     def firstUniqChar(self, s: str) -> int:
         pos = -1
         from collections import Counter
+
         freqs = Counter(s)
-        for idx,l in enumerate(s):
+        for idx, l in enumerate(s):
             if freqs[l] == 1:
                 return idx
         return pos
 
-        
-# @lc code=end
 
+# @lc code=end

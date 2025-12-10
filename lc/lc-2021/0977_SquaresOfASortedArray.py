@@ -3,7 +3,7 @@
 #         left = 0
 #         right = len(nums)-1
 #         output = []
-        
+
 #         while left <= right:
 #             if nums[right]**2 > nums[left]**2:
 #                 output.append(nums[right]**2)
@@ -11,13 +11,13 @@
 #             else:
 #                 output.append(nums[left]**2)
 #                 left += 1
-        
+
 #         output2 = [
 #             output[i]
 #             for i in range(len(output)-1, -1, -1)
 #         ]
 #         return output2
-        
+
 # class Solution:
 #     def sortedSquares(self, nums: List[int]) -> List[int]:
 #         '''
@@ -32,15 +32,15 @@
 #             return []
 #         if N==1:
 #             return [nums[0]**2]
-        
+
 #         # initialize pos pointer
 #         while pos<N and nums[pos]<0:
 #             pos += 1
-        
+
 #         # initialize neg pointer
 #         neg = pos - 1
 #         # print(neg, pos)
-        
+
 #         # generating the output
 #         ans = []
 #         while neg>=0 and pos<=N-1:
@@ -56,7 +56,7 @@
 #         while pos<=N-1:
 #             ans.append(nums[pos]**2)
 #             pos += 1
-        
+
 #         return ans
 
 ## as of 11/7/2021
@@ -81,11 +81,11 @@
 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        output = [0] * len(nums) # place holder
+        output = [0] * len(nums)  # place holder
         n = len(nums)
         l = 0
         r = n - 1
-        for i in range(n - 1, -1 , -1):
+        for i in range(n - 1, -1, -1):
             if abs(nums[l]) > abs(nums[r]):
                 output[i] = nums[l] ** 2
                 l += 1
@@ -93,5 +93,3 @@ class Solution:
                 output[i] = nums[r] ** 2
                 r -= 1
         return output
-        
-    

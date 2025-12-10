@@ -6,21 +6,22 @@
 #         self.right = right
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
-        '''
+        """
         bfs traversal, switch left/right order based on level
-        '''
-        
+        """
+
         ans = []
-        
+
         # special case
         if not root:
             return ans
-        
+
         from collections import deque
+
         q = deque()
         q.append(root)
-        level = 0 # 0 represents the level of the tree node
-        
+        level = 0  # 0 represents the level of the tree node
+
         while q:
             n = len(q)
             tmp = []
@@ -32,12 +33,10 @@ class Solution:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            if not level % 2:                  
+            if not level % 2:
                 ans.append(tmp)
             else:
                 ans.append(tmp[::-1])
             level += 1
-        
+
         return ans
-            
-            

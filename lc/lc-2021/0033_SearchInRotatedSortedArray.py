@@ -6,14 +6,12 @@ class Solution:
         while l <= r:
             m = (l + r) // 2
             # print(l, m, r, nums[l] > nums[m], target < nums[m])
-            
+
             if nums[m] == target:
                 return m
             elif l == r and nums[m] != target:
                 return -1
-            
-            
-            
+
             # determine the scenarios
             if nums[l] > nums[m]:
                 # scenario 1
@@ -22,8 +20,8 @@ class Solution:
                 elif target < nums[l]:
                     l = m + 1
                 else:
-                    r = m - 1                    
-                
+                    r = m - 1
+
             else:
                 # scenario 2
                 if target > nums[m]:
@@ -32,8 +30,5 @@ class Solution:
                     l = m + 1
                 else:
                     r = m - 1
-                    
+
         return -1
-                
-                
-                

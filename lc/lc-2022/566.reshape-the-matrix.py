@@ -13,13 +13,12 @@ class Solution:
         if m * n != r * c:
             return mat
         # reshape
-        output = [[0] * c for i in range(r)] # placeholder
+        output = [[0] * c for i in range(r)]  # placeholder
         for i in range(m):
             for j in range(n):
                 idx = n * i + j
-                output[idx//c][idx%c] = mat[i][j]
+                output[idx // c][idx % c] = mat[i][j]
         return output
 
 
 # @lc code=end
-

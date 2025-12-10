@@ -7,7 +7,7 @@
 # @lc code=start
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        max_sum = - 10 ** 4 - 1
+        max_sum = -(10**4) - 1
         cur_sum = 0
         for num in nums:
             if cur_sum < 0 and cur_sum < num:
@@ -18,6 +18,4 @@ class Solution:
         return max_sum
 
 
-        
 # @lc code=end
-

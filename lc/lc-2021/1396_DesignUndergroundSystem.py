@@ -1,7 +1,7 @@
 class UndergroundSystem:
-
     def __init__(self):
         from collections import defaultdict
+
         self.stationLog = defaultdict(list)
         self.routeStats = defaultdict(list)
 
@@ -21,7 +21,10 @@ class UndergroundSystem:
         if (startStation, endStation) not in self.routeStats:
             return None
         else:
-            return self.routeStats[(startStation, endStation)][0] / self.routeStats[(startStation, endStation)][1]
+            return (
+                self.routeStats[(startStation, endStation)][0]
+                / self.routeStats[(startStation, endStation)][1]
+            )
 
 
 # Your UndergroundSystem object will be instantiated and called as such:

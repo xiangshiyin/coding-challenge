@@ -57,4 +57,3 @@ class MyHashMap:
 # param_2 = obj.get(key)
 # obj.remove(key)
 # @lc code=end
-

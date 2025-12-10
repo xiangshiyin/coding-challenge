@@ -7,6 +7,7 @@
 
 # case: [-2,3,-4]
 
+
 class Solution:
     def maxProduct(self, nums):
         """
@@ -14,18 +15,17 @@ class Solution:
         :rtype: int
         """
         for i in range(len(nums)):
-            if i==0:
+            if i == 0:
                 positive = nums[0]
                 negative = nums[0]
                 result = nums[0]
                 print(positive, negative, result)
             else:
                 # print(nums[i], positive*nums[i], negative*nums[i])
-                max_temp = max(nums[i], positive*nums[i], negative*nums[i])
-                min_temp = min(nums[i], positive*nums[i], negative*nums[i])
+                max_temp = max(nums[i], positive * nums[i], negative * nums[i])
+                min_temp = min(nums[i], positive * nums[i], negative * nums[i])
                 positive = max_temp
                 negative = min_temp
                 result = max(positive, result)
                 print(positive, negative, result)
-        return(result)
-
+        return result

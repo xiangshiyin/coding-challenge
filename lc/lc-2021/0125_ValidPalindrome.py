@@ -8,10 +8,10 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         n = len(s)
-        
+
         if n == 1:
             return True
-        
+
         l = 0
         r = n - 1
         while l < r:
@@ -26,5 +26,3 @@ class Solution:
                 else:
                     return False
         return True
-    
-    

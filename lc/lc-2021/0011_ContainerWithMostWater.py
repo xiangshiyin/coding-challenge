@@ -1,7 +1,7 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         n = len(height)
-        
+
         l = 0
         r = n - 1
         v = 0
@@ -14,4 +14,3 @@ class Solution:
             else:
                 r -= 1
         return v
-    

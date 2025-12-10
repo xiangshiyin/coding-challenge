@@ -5,11 +5,13 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    '''
+    """
     inorder traversal
-    '''
+    """
+
     def convertBST(self, root: TreeNode) -> TreeNode:
         self.prev = 0
+
         def traverse(node):
             if node:
                 traverse(node.right)
@@ -17,6 +19,5 @@ class Solution:
                 self.prev = node.val
                 traverse(node.left)
 
-        traverse(root)        
+        traverse(root)
         return root
-        

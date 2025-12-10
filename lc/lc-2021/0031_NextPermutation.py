@@ -3,8 +3,8 @@
 #         while begin<end:
 #             nums[begin],nums[end] = nums[end],nums[begin]
 #             begin, end = begin+1, end-1
-            
-        
+
+
 #     def nextPermutation(self, nums: List[int]) -> None:
 #         """
 #         Do not return anything, modify nums in-place instead.
@@ -37,17 +37,17 @@ class Solution:
             nums[start], nums[end] = nums[end], nums[start]
             start += 1
             end -= 1
-    
+
     def nextPermutation(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
         N = len(nums)
-        
+
         # exception
         if N == 1:
             return nums
-        
+
         i = N - 1
         while i > 0:
             if nums[i] <= nums[i - 1]:
@@ -59,10 +59,6 @@ class Solution:
                 # swap
                 nums[i - 1], nums[j] = nums[j], nums[i - 1]
                 break
-        
+
         # reverse the right hand side
         self.reverse(nums, i, N - 1)
-            
-                    
-                        
-                    

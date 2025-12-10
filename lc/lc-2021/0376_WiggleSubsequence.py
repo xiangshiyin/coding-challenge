@@ -6,7 +6,7 @@
 #         n = len(nums)
 #         if n <= 1:
 #             return n
-        
+
 #         len_max = 1
 #         up = None
 #         for i in range(1,n):
@@ -18,7 +18,7 @@
 #                 up = False
 #         return len_max
 
-    
+
 # class Solution:
 #     def wiggleMaxLength(self, nums: List[int]) -> int:
 #         '''
@@ -30,11 +30,11 @@
 #         # exceptions
 #         if n <= 1:
 #             return 1
-        
+
 #         # dp traversal
 #         up = [1 for i in range(n)]
 #         down = [1 for i in range(n)]
-        
+
 #         for i in range(1, n):
 #             for j in range(i):
 #                 if nums[j] > nums[i]:
@@ -42,22 +42,22 @@
 #                 elif nums[j] < nums[i]:
 #                     down[i] = max(down[i], up[j] + 1)
 #         return max(up[n - 1], down[n - 1])
-            
-        
+
+
 class Solution:
     def wiggleMaxLength(self, nums: List[int]) -> int:
-        '''
+        """
         dp, O(n)
-        '''
+        """
         n = len(nums)
         # exceptions
         if n <= 1:
             return 1
-        
+
         # dp traversal
         up = [1 for i in range(n)]
         down = [1 for i in range(n)]
-        
+
         for i in range(1, n):
             if nums[i - 1] < nums[i]:
                 up[i] = down[i - 1] + 1
@@ -69,5 +69,4 @@ class Solution:
                 up[i] = up[i - 1]
                 down[i] = down[i - 1]
             # print(up, down)
-        return max(up[n - 1], down[n - 1])        
-        
+        return max(up[n - 1], down[n - 1])

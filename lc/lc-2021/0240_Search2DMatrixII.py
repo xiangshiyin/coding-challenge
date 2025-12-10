@@ -6,7 +6,7 @@
 #         m = len(matrix)
 #         n = len(matrix[0])
 #         visited = set()
-        
+
 #         def dfs(row, col):
 #             if matrix[row][col] == target:
 #                 return True
@@ -19,17 +19,17 @@
 #                 if dfs(row, col + 1):
 #                     return True
 #             return False
-    
+
 #         return dfs(0,0)
-        
+
 # class Solution:
 #     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
 #         '''
 #         binary search in each row
 #         '''
 #         m = len(matrix)
-#         n = len(matrix[0])            
-        
+#         n = len(matrix[0])
+
 #         def binary_search(row, target):
 #             lo = 0
 #             hi = n - 1
@@ -41,13 +41,13 @@
 #                     hi = mid - 1
 #                 else:
 #                     return True
-                
+
 #         for i in range(m):
 #             if binary_search(i, target):
 #                 return True
-        
+
 #         return False
-    
+
 
 # class Solution:
 #     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -55,12 +55,12 @@
 #         optimized binary search, actually not faster than row based binary search
 #         '''
 #         m = len(matrix)
-#         n = len(matrix[0])            
-        
+#         n = len(matrix[0])
+
 #         def binary_search(start, target, vertical):
 #             lo = start
 #             hi = n - 1 if vertical else m - 1
-            
+
 #             while hi >= lo:
 #                 mid = (lo + hi) // 2
 #                 if vertical:
@@ -78,15 +78,15 @@
 #                     else:
 #                         return True
 #             return False
-                
+
 #         for i in range(min(m, n)):
 #             if binary_search(i, target, True):
 #                 return True
 #             if binary_search(i, target, False):
 #                 return True
-        
+
 #         return False
-    
+
 
 # class Solution:
 #     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -94,14 +94,14 @@
 #         binary search, divide and conquer
 #         '''
 #         m = len(matrix)
-#         n = len(matrix[0])    
-        
+#         n = len(matrix[0])
+
 #         def search(left, right, up, down):
 #             if left > right or up > down:
 #                 return False
 #             elif matrix[up][left] > target or matrix[down][right] < target:
 #                 return False
-            
+
 #             row = up
 #             mid = (left + right) // 2
 #             # print(left, right, up, down, mid, matrix[row][mid] == target)
@@ -110,23 +110,23 @@
 #                     # print(True)
 #                     return True
 #                 row += 1
-            
+
 #             return search(left, mid - 1, up, down) or search(mid + 1, right, up, row - 1)
-        
+
 #         return search(0, n - 1, 0, m - 1)
-    
-    
+
+
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        '''
+        """
         binary search, divide and conquer
-        '''
+        """
         m = len(matrix)
-        n = len(matrix[0])    
-        
+        n = len(matrix[0])
+
         row = m - 1
         col = 0
-        
+
         while col < n and row >= 0:
             if matrix[row][col] > target:
                 row -= 1
@@ -134,10 +134,5 @@ class Solution:
                 col += 1
             else:
                 return True
-            
-        return False
-    
-        
-            
-            
 
+        return False

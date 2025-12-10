@@ -21,10 +21,6 @@ class Solution:
                 nums1[p] = nums1[lp]
                 lp -= 1
             p -= 1
-        
 
 
-
-        
 # @lc code=end
-

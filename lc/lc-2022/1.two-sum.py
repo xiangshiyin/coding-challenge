@@ -11,8 +11,7 @@ class Solution:
         for idx, num in enumerate(nums):
             if target - num in saw:
                 return [saw[target - num], idx]
-            saw[num] = idx 
+            saw[num] = idx
 
-        
+
 # @lc code=end
-

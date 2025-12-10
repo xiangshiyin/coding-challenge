@@ -23,6 +23,6 @@ class Solution:
                 prev = curr
             curr = curr.next
         return head
-        
-# @lc code=end
 
+
+# @lc code=end

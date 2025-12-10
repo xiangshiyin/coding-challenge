@@ -4,9 +4,9 @@ class Solution:
         if nums is None:
             return False
         N = len(nums)
-        if N<=1:
+        if N <= 1:
             return False
-        
+
         # traverse the list
         tb = set()
         for num in nums:
@@ -14,4 +14,3 @@ class Solution:
                 tb.add(num)
             else:
                 return True
-

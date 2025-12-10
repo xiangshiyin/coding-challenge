@@ -8,22 +8,21 @@ class Solution:
     def findDuplicateSubtrees(self, root: TreeNode) -> List[TreeNode]:
         freq = {}
         output = []
+
         def postorder(node):
-            res = ''
+            res = ""
             if node:
-                res = f'{postorder(node.left)},{postorder(node.right)},{node.val}'
+                res = f"{postorder(node.left)},{postorder(node.right)},{node.val}"
             # update the hash table
             if res not in freq:
                 freq[res] = 1
             else:
                 freq[res] += 1
-                if freq[res] == 2 and res != '':
+                if freq[res] == 2 and res != "":
                     output.append(node)
-                
+
             return res
-        
+
         postorder(root)
-        
+
         return output
-            
-        

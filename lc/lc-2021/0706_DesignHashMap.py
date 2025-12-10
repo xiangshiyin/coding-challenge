@@ -5,13 +5,13 @@
 # class Bucket:
 #     def __init__(self):
 #         self.bucket = []
-        
+
 #     def get(self, key):
 #         for (k,v) in self.bucket:
 #             if k==key:
 #                 return v
 #         return -1
-    
+
 #     def update(self, key, value):
 #         found = False
 #         for i, kv in enumerate(self.bucket):
@@ -21,7 +21,7 @@
 #                 return
 #         if not found:
 #             self.bucket.append((key, value))
-    
+
 #     def remove(self, key):
 #         for i, kv in enumerate(self.bucket):
 #             if key==kv[0]:
@@ -35,10 +35,10 @@
 #         """
 #         self.bucketRange = 2069
 #         self.bucketArray = [Bucket() for i in range(self.bucketRange)]
-    
+
 #     def _hash(self, key):
 #         return key % self.bucketRange
-        
+
 
 #     def put(self, key: int, value: int) -> None:
 #         """
@@ -46,7 +46,7 @@
 #         """
 #         bucketIndex = self._hash(key)
 #         self.bucketArray[bucketIndex].update(key,value)
-        
+
 
 #     def get(self, key: int) -> int:
 #         """
@@ -54,7 +54,7 @@
 #         """
 #         bucketIndex = self._hash(key)
 #         return self.bucketArray[bucketIndex].get(key)
-        
+
 
 #     def remove(self, key: int) -> None:
 #         """
@@ -62,25 +62,25 @@
 #         """
 #         bucketIndex = self._hash(key)
 #         self.bucketArray[bucketIndex].remove(key)
-            
 
-'''
+
+"""
 The LinkedList implementation
-'''
+"""
+
 
 class ListNode:
     def __init__(self, key=-1, value=None, nextNode=None):
         self.key = key
         self.value = value
         self.next = nextNode
-        
+
 
 class MyHashMap:
-
     def __init__(self):
         self.bucketRange = 2069
         self.bucketList = [ListNode(-1) for _ in range(self.bucketRange)]
-    
+
     def _hash(self, key):
         return key % self.bucketRange
 
@@ -89,7 +89,7 @@ class MyHashMap:
         head = self.bucketList[bucketIndex]
         curr = self.bucketList[bucketIndex].next
         while curr:
-            if curr.key == key: 
+            if curr.key == key:
                 curr.value = value
                 return
             curr = curr.next
@@ -114,7 +114,7 @@ class MyHashMap:
                 prev.next = curr.next
                 return
             prev = curr
-            curr = curr.next        
+            curr = curr.next
 
 
 # Your MyHashMap object will be instantiated and called as such:

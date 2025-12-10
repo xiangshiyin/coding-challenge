@@ -12,7 +12,7 @@ class Solution:
         matrix = [[0] * n for i in range(n)]
         r = c = 0
         curr = 1
-        while curr <= n ** 2:
+        while curr <= n**2:
             matrix[r][c] = curr
             trials = 0
             while (
@@ -40,4 +40,3 @@ class Solution:
 
 
 # @lc code=end
-

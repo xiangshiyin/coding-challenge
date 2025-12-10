@@ -1,17 +1,14 @@
 class Solution:
     def convertToTitle(self, columnNumber: int) -> str:
-        ans = ''
+        ans = ""
         num = columnNumber
-        
+
         # create a lookup table
-        tb = {
-            n:l
-            for l,n in zip(list('ZABCDEFGHIJKLMNOPQRSTUVWXY'), list(range(26)))
-        }
+        tb = {n: l for l, n in zip(list("ZABCDEFGHIJKLMNOPQRSTUVWXY"), list(range(26)))}
         # print(tb)
-        
+
         while num >= 0:
-            ans = tb[num % 26] + ans 
+            ans = tb[num % 26] + ans
             # update num
             if num <= 26:
                 break
@@ -22,6 +19,3 @@ class Solution:
                     num = (num - 26) // 26
 
         return ans
-    
-            
-            

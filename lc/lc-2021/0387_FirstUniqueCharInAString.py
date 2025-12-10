@@ -8,10 +8,9 @@ class Solution:
             else:
                 helper[char] += 1
         print(helper)
-        
+
         # 2nd pass
         for i in range(len(s)):
-            if helper[s[i]]==1:
+            if helper[s[i]] == 1:
                 return i
         return -1
-        

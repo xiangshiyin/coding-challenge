@@ -118,16 +118,15 @@ Created on Wed Nov 22 19:25:16 2017
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        
         sumNodeHead = ListNode(0)
         sumNode = sumNodeHead
-        
+
         while l1 and l2:
-            currentDigit = (sumNode.val + l1.val + l2.val)%10
-            nextDigit = (sumNode.val + l1.val + l2.val)//10
+            currentDigit = (sumNode.val + l1.val + l2.val) % 10
+            nextDigit = (sumNode.val + l1.val + l2.val) // 10
 
             sumNode.val = currentDigit
-            if nextDigit>0:
+            if nextDigit > 0:
                 sumNode.next = ListNode(nextDigit)
             elif l1.next or l2.next:
                 sumNode.next = ListNode(0)
@@ -138,16 +137,12 @@ class Solution:
         if l1 or l2:
             l = l1 if l1 else l2
             while l:
-                currentDigit = (sumNode.val + l.val)%10
-                nextDigit = (sumNode.val + l.val)//10
+                currentDigit = (sumNode.val + l.val) % 10
+                nextDigit = (sumNode.val + l.val) // 10
                 sumNode.val = currentDigit
-                if l.next or nextDigit>0:
+                if l.next or nextDigit > 0:
                     sumNode.next = ListNode(nextDigit)
                 l = l.next
                 sumNode = sumNode.next
-        
+
         return sumNodeHead
-        
-        
-        
-        

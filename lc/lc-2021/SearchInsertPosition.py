@@ -2,9 +2,9 @@ class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         if len(nums) == 0:
             return 0
-        
+
         default = 0
-        
+
         l = 0
         r = len(nums) - 1
         while l <= r:
@@ -17,4 +17,3 @@ class Solution:
                 l = m + 1
                 default = max(default, l)
         return default
-    

@@ -5,37 +5,39 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
-    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
-        '''
+    def inorderSuccessor(self, root: "TreeNode", p: "TreeNode") -> "TreeNode":
+        """
         in-order traversal
-        '''
+        """
         self.found = False
+
         def inorder(node, target):
             if not node:
                 return
-            
+
             if node.left:
                 l = inorder(node.left, target)
                 if l:
                     return l
-                
+
             if self.found:
                 return node
             elif node == target:
                 self.found = True
-            
-            
+
             if node.right:
                 r = inorder(node.right, target)
                 if r:
                     return r
-            
-            return 
-    
+
+            return
+
         res = inorder(root, p)
         return res
-        
+
+
 ## 4/8/2021: iterative solution
 # class Solution:
 #     def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
@@ -43,8 +45,8 @@ class Solution:
 #         inorder traversal the tree, find the child node of the target node
 #         '''
 #         curr = None
-#         stack = []        
-        
+#         stack = []
+
 #         while True:
 #             while root:
 #                 stack.append(root)
@@ -56,7 +58,3 @@ class Solution:
 #                 return node
 #             curr = node
 #             root = node.right
-
-
-
-

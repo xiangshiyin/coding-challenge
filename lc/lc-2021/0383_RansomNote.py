@@ -7,16 +7,13 @@ class Solution:
                 helper[char] = 1
             else:
                 helper[char] += 1
-        
+
         # traverse the ransomNode
         for char in ransomNote:
             if char not in helper:
                 return False
-            elif helper[char]>0:
+            elif helper[char] > 0:
                 helper[char] -= 1
             else:
                 return False
         return True
-
-    
-    

@@ -3,8 +3,9 @@ class Solution:
         m = len(matrix)
         n = len(matrix[0])
         from bisect import insort, bisect_left
-        self.maxsum = -1 * 10 ** 6
-        
+
+        self.maxsum = -1 * 10**6
+
         def helper(tmp, k):
             presum = 0
             presums = [0]
@@ -15,17 +16,11 @@ class Solution:
                     self.maxsum = max(self.maxsum, presum - presums[idx])
                 insort(presums, presum)
 
-                
-        
-        
         for ix in range(m):
             tmp = [0] * n
-            for jx in range(ix,m):
+            for jx in range(ix, m):
                 for kx in range(n):
                     tmp[kx] += matrix[jx][kx]
                 helper(tmp, k)
-        
+
         return self.maxsum
-        
-        
-        

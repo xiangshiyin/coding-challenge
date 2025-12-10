@@ -4,7 +4,7 @@
 #         freq = Counter(s)
 #         l = sorted([freq[k] for k in freq], reverse = True)
 #         # print(l)
-        
+
 #         ans = 0
 #         for i in range(1, len(l)):
 #             if l[i] == l[i-1]:
@@ -18,14 +18,15 @@
 #                     ans += l[i]
 #                     l[i] -= l[i]
 #         return ans
-        
-    
+
+
 class Solution:
     def minDeletions(self, s: str) -> int:
         from collections import Counter
+
         freq = Counter(s)
-        l = sorted([freq[k] for k in freq], reverse = True)
-        
+        l = sorted([freq[k] for k in freq], reverse=True)
+
         ans = 0
         seen = set()
         for f in l:
@@ -35,5 +36,3 @@ class Solution:
             if f:
                 seen.add(f)
         return ans
-    
-            

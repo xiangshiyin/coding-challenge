@@ -25,10 +25,10 @@ class Solution:
         way_m2 = 0
         way_m1 = 1
         way = 1
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             way = way_m2 + way_m1
             way_m2, way_m1 = way_m1, way
         return way
 
-# @lc code=end
 
+# @lc code=end

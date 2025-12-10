@@ -14,10 +14,10 @@ class Solution:
                 if j == 0 or j == i:
                     cur.append(1)
                 else:
-                    tmp = output[i-1][j-1] + output[i-1][j]
+                    tmp = output[i - 1][j - 1] + output[i - 1][j]
                     cur.append(tmp)
             output.append(cur)
         return output
-        
-# @lc code=end
 
+
+# @lc code=end
